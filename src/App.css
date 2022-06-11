@@ -7,13 +7,14 @@ body,
   padding: 0;
   height: 100%;
   background-color: black;
-  overflow: hidden;
+  overflow: auto;
 }
 .App {
   background-color: var(--bg-100);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .container {
   background-color: white;
@@ -141,4 +142,16 @@ body,
 }
 .slider-right-value {
   right: 0%;
+}
+
+/*PopupButton*/
+.popupbutton-wrapper {
+  position: relative;
+}
+.popupbutton-popup {
+  position: absolute;
+}
+.test {
+  width: fit-content;
+  background-color: red;
 }

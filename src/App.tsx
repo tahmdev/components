@@ -1,13 +1,16 @@
 import { useReducer, useState } from "react";
 import "./App.css";
 import { MultiRange } from "./components/MultiRange/MultiRange";
+import { PopupButton } from "./components/PopupButton/PopupButton";
 import SwipeButton from "./components/SwipeButton/SwipeButton";
 import { Toast } from "./components/Toast/Toast";
 import { toastReducer } from "./components/Toast/ToastReducer";
 
 function App() {
-  const [currentComponent, setCurrentComponent] = useState("MultiRange");
+  const [currentComponent, setCurrentComponent] = useState("PopupButton");
   const [toastNotifs, dispatch] = useReducer(toastReducer, []);
+  const [showPopupButton, setShowPopupButton] = useState(false);
+  const [showPopupButton2, setShowPopupButton2] = useState(false);
   const fnl = (a: any) => console.log(a);
   const fnr = () => console.log("RIGHT");
   const handleMultiRangeChange = (min: number, max: number) => {
@@ -53,6 +56,12 @@ function App() {
             initMax={60}
             onChange={handleMultiRangeChange}
           />
+        )}
+        {currentComponent === "PopupButton" && (
+          <PopupButton show={showPopupButton} setShow={setShowPopupButton}>
+            <span>I have a popup</span>
+            <div className="test">I am a popup</div>
+          </PopupButton>
         )}
       </div>
     </div>
