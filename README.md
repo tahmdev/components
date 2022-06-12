@@ -1,3 +1,6 @@
+# About this project
+A collection of various reusable react components I have used in other projects.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
