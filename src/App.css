@@ -34,6 +34,17 @@ body,
   background-color: red;
   color: white;
 }
+.trans-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+}
+.orange-bg {
+  background-color: orange;
+}
 
 /*TOAST*/
 .toast-wrapper ul {
@@ -153,5 +164,55 @@ body,
 }
 .test {
   width: fit-content;
-  background-color: red;
+  background-color: orange;
+}
+
+/*Container*/
+.carousel-wrapper {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.carousel {
+  display: flex;
+  height: fit-content;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel > * + * {
+  margin-left: 1rem;
+}
+.carousel > * {
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  scroll-snap-align: center;
+  border-radius: 5px;
+}
+.carousel-navigation {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.dot-navigation {
+  display: flex;
+}
+.carousel-navigation button {
+  color: rgb(94, 94, 94);
+}
+@media (min-width: 1024px) {
+  .carousel-navigation button {
+    font-size: 1.4rem;
+  }
+}
+.dot-active {
+  color: black !important;
+}
+.arrow-disabled {
+  opacity: 0;
+  pointer-events: none;
 }

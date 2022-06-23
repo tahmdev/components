@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import "./App.css";
+import { Carousel } from "./components/Carousel/Carousel";
 import { MultiRange } from "./components/MultiRange/MultiRange";
 import { PopupButton } from "./components/PopupButton/PopupButton";
 import SwipeButton from "./components/SwipeButton/SwipeButton";
@@ -7,7 +8,7 @@ import { Toast } from "./components/Toast/Toast";
 import { toastReducer } from "./components/Toast/ToastReducer";
 
 function App() {
-  const [currentComponent, setCurrentComponent] = useState("PopupButton");
+  const [currentComponent, setCurrentComponent] = useState("Carousel");
   const [toastNotifs, dispatch] = useReducer(toastReducer, []);
   const [showPopupButton, setShowPopupButton] = useState(false);
   const [showPopupButton2, setShowPopupButton2] = useState(false);
@@ -62,6 +63,13 @@ function App() {
             <span>I have a popup</span>
             <div className="test">I am a popup</div>
           </PopupButton>
+        )}
+        {currentComponent === "Carousel" && (
+          <Carousel autoScroll={4000}>
+            <div className="orange-bg">First Carousel Item</div>
+            <div>Second Carousel Item</div>
+            <img src="https://i.imgur.com/G7OSlt6.png" />
+          </Carousel>
         )}
       </div>
     </div>
