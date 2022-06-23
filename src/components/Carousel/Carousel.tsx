@@ -66,6 +66,7 @@ export const Carousel: React.FC<Props> = ({ children, autoScroll }) => {
           {children.map((_, idx) => (
             <button
               key={idx}
+              aria-label={`Skip to carousel item ${idx + 1}`}
               className={`trans-btn ${
                 idx === currentIndex ? "dot-active" : ""
               }`}
@@ -77,6 +78,7 @@ export const Carousel: React.FC<Props> = ({ children, autoScroll }) => {
         </div>
         <div className="arrow-navigation">
           <button
+            aria-label="Previous Carousel Item"
             className={`trans-btn ${
               currentIndex === 0 ? "arrow-disabled" : ""
             }`}
@@ -85,6 +87,7 @@ export const Carousel: React.FC<Props> = ({ children, autoScroll }) => {
             ◀
           </button>
           <button
+            aria-label="Next Carousel Item"
             className={`trans-btn ${
               currentIndex === children.length - 1 ? "arrow-disabled" : ""
             }`}
