@@ -1,6 +1,7 @@
 import { useReducer, useState } from "react";
 import "./App.css";
 import { Carousel } from "./components/Carousel/Carousel";
+import { DynamicTextarea } from "./components/DynamicTextarea/DynamicTextarea";
 import { MultiRange } from "./components/MultiRange/MultiRange";
 import { PopupButton } from "./components/PopupButton/PopupButton";
 import SwipeButton from "./components/SwipeButton/SwipeButton";
@@ -8,10 +9,9 @@ import { Toast } from "./components/Toast/Toast";
 import { toastReducer } from "./components/Toast/ToastReducer";
 
 function App() {
-  const [currentComponent, setCurrentComponent] = useState("Carousel");
+  const [currentComponent, setCurrentComponent] = useState("DynamicTextarea");
   const [toastNotifs, dispatch] = useReducer(toastReducer, []);
   const [showPopupButton, setShowPopupButton] = useState(false);
-  const [showPopupButton2, setShowPopupButton2] = useState(false);
   const fnl = (a: any) => console.log(a);
   const fnr = () => console.log("RIGHT");
   const handleMultiRangeChange = (min: number, max: number) => {
@@ -70,6 +70,15 @@ function App() {
             <div>Second Carousel Item</div>
             <img src="https://i.imgur.com/G7OSlt6.png" />
           </Carousel>
+        )}
+        {currentComponent === "DynamicTextarea" && (
+          <DynamicTextarea
+            className="dynamic-textarea"
+            minRows={1}
+            maxRows={5}
+            placeholder="Message here"
+            onChange={(e) => console.log(e.target.value)}
+          />
         )}
       </div>
     </div>
